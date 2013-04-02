@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+lib = File.expand_path("../lib")
+$:.unshift(lib) unless $:.include?(lib)
+require 'airm_nagios_check'
+
+##
+# ::main::
+AirmNagiosCheck::Base.new(:filename=>Choice.choices[:file]).check()
