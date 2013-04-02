@@ -1,9 +1,13 @@
 #!/usr/bin/env ruby
 
-lib = File.expand_path('../lib', __FILE__)
+lib = File.expand_path(File.join(File.dirname(__FILE__), %w{.. lib}))
 $:.unshift(lib) unless $:.include?(lib)
 
+require 'airm_nagios_check/options_parser'
 require 'airm_nagios_check'
 
 
-AirmNagiosCheck::Base.new(:filename=>Choice.choices[:file]).check()
+response = AirmNagiosCheck::Checker.new(:filename=>Choice.choices[:file]).do_check()
+
+puts response.performance_data
+Kernel.exit(response.exit_code)

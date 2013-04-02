@@ -1,4 +1,5 @@
-# -*- encoding: utf-8 -*-
+# encoding: utf-8
+
 begin
   require 'choice'
 rescue LoadError
@@ -13,6 +14,7 @@ Choice.options do
   header ' opciones:'
 
   option :file, :required=>true do
+    
     short '-f'
     long  '--file'
     desc  'Alfresco global configuration file'
@@ -22,6 +24,7 @@ Choice.options do
   separator ' help:'
   
   option :help do
+    
     short '-h'
     long  '--help'
     desc  'This help screen'
