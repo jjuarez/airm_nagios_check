@@ -1,10 +1,11 @@
 # -*- encoding: utf-8 -*-
 begin
   require 'choice'
-rescue LoadError => le
+rescue LoadError
   require 'rubygems'
   require 'choice'
 end
+
 
 Choice.options do
   

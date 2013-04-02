@@ -1,10 +1,11 @@
 # -*- encoding: utf-8 -*-
 begin
   require 'inifile'
-rescue LoadError => le
+rescue LoadError
   require 'rubygems'
   require 'inifile'
 end
+
 
 module AirmNagiosCheck
 
@@ -22,17 +23,8 @@ module AirmNagiosCheck
       self
     end
   
-    def [](key)
-    
+    def [](key)  
       return @values["global"][key]
     end
-  
-    def inspect
-      @values.inspect
-    end
-  
-    def to_se
-      "#{inspect}"
-    end    
   end
 end

@@ -13,10 +13,6 @@ module AirmNagiosCheck
       self
     end
     
-    def inspect()
-      "{ label: #{@label}, value: #{@value}, UOM: #{@uom}}"
-    end
-    
     def to_s()
       "|'#{@label}'=#{@value}#{@uom}"
     end

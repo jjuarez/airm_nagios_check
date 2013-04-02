@@ -1,4 +1,4 @@
-# -*- encoding: utf-8 -*-
+# encoding: utf-8
 
 require 'airm_nagios_check/options_parser'
 require 'airm_nagios_check/config'
@@ -11,11 +11,9 @@ module AirmNagiosCheck
   class Base
   
     def initialize(options={ })
-    
-      config       = Config.new(:filename=>options[:filename])
-      
-      @irm_value   = config["index.recovery.mode"]
-      @error_codes = Hash.new(ExitCodes::UNKNOWN) # default UNKNOWN
+        
+      @irm_value   = Config.new(:filename=>options[:filename])["index.recovery.mode"]
+      @error_codes = Hash.new(ExitCodes::UNKNOWN)
       
       @error_codes["NONE"]     = ExitCodes::ERROR
       @error_codes["VALIDATE"] = ExitCodes::WARNING
