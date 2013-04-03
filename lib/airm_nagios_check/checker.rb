@@ -10,7 +10,8 @@ module AirmNagiosCheck
 
   class Checker
     
-    PLUGIN_BEHAVIOR = {
+    PROPERTY_KEY            = "index.recovery.mode"
+    DEFAULT_PLUGIN_BEHAVIOR = {
       
       "NONE"     =>ExitCodes::ERROR,
       "VALIDATE" =>ExitCodes::WARNING,
@@ -19,17 +20,18 @@ module AirmNagiosCheck
     }
 
     def initialize(options={ })
-        
-      @irm_value   = Config.new(:filename=>options[:filename])["index.recovery.mode"]
       
+      options      = { :pluginbehavior=>DEFAULT_PLUGIN_BEHAVIOR }.merge(options)
+        
+      @irm_value   = Config.new(:filename=>options[:filename])[PROPERTY_KEY]      
       @error_codes = Hash.new(ExitCodes::UNKNOWN)
-      @error_codes.merge(PLUGIN_BEHAVIOR)
+      
+      @error_codes.merge!(options[:pluginbehavior])
       
       self
     end
     
     def do_check(options={ })
-      
       return Response.new(@error_codes[@irm_value], SimplePerformanceData.new('Index Recovery Mode', @irm_value))
     end
   end
