@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 
-describe 'AirmNagiosCheck' do
+describe 'Alfresco Index Recovery Mode Nagios Check' do
   context 'Checker' do
     
     it 'should construct a valid Response for NONE state of Index recovery mode' do

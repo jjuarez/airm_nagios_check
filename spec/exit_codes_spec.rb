@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 
-describe 'AirmNagiosCheck' do
+describe 'Alfresco Index Recovery Mode Nagios Check' do
   context 'ExitCodes' do
     
     it 'should have an ExitCode Ok with value 0' do

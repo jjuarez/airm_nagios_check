@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 
-describe 'AirmNagiosCheck' do
+describe 'Alfresco Index Recovery Mode Nagios Check' do
   context 'SimplePerformanceData' do
     
     it 'should return a PerformanceData String with a valid UOM (Seconds)' do

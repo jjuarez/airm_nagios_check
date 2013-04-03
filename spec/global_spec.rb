@@ -1,8 +1,9 @@
 require 'spec_helper'
 
 
-describe 'AirmNagiosCheck' do
+describe 'Alfresco Index Recovery Mode Nagios Check' do
   context 'Global' do
+    
     it 'should have a version number' do
       AirmNagiosCheck::VERSION.should_not be_nil
     end

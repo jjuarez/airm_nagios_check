@@ -1,10 +1,10 @@
 require 'spec_helper'
 
 
-describe 'AirmNagiosCheck' do
+describe 'Alfresco Index Recovery Mode Nagios Check' do
   context 'Config' do
     
-    it 'shoul have a config file' do
+    it 'should have a config file' do
       expect { AirmNagiosCheck::Config.new().should }.to raise_error(ArgumentError)
     end
 
