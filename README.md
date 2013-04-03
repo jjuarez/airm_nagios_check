@@ -1,6 +1,6 @@
-# AirmNagiosCheck
+# Alfresco Index Recovery Mode Nagios basic check
 
-TODO: Write a gem description
+This gem is a little approach to check the fu-- configuration for the index recovery mode in Alfresco instances. Check this before you die trying to star a server in FULL mode dude.
 
 ## Installation
 
@@ -18,7 +18,15 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+1. Install the gem
+
+    $ gem install airm_nagios_check
+    
+2. Configure a check in your nrpe local i.e.: 
+
+    $ check[index_recovery_mode]=${RUBY_HOME}/bin/airm_nagios_check --file /opt/your-alfresco-install/conf/alfresco.properties
+
+3. Configure a command in your nagios instance...
 
 ## Contributing
 
@@ -27,3 +35,4 @@ TODO: Write usage instructions here
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
