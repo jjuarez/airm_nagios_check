@@ -13,5 +13,13 @@ module AirmNagiosCheck
       
       self
     end
+    
+    def inspect()
+      "{ exit_code: #{@exit_code}, performance_data: #{@performance_data} }"
+    end
+    
+    def to_s()
+      inspect
+    end
   end
 end
