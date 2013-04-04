@@ -1,6 +1,6 @@
 # Alfresco Index Recovery Mode Nagios basic check
 
-This gem is a little approach to check the fu-- configuration for the index recovery mode in Alfresco instances. Check this before you die trying to star a server in FULL mode dude.
+This gem is a little approach, and very opinionated to check the fu-%ing configuration for the index recovery mode in Alfresco instances. Check this before you die trying to start a server configured as FULL index recovery mode.
 
 ## Installation
 
