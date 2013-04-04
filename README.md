@@ -1,6 +1,6 @@
 # Alfresco Index Recovery Mode Nagios basic check
 
-This gem is a little approach to check the fu-- configuration for the index recovery mode in Alfresco instances. Check this before you die trying to star a server in FULL mode dude.
+This gem is a little approach, and very opinionated to check the fu-%ing configuration for the index recovery mode in Alfresco instances. Check this before you die trying to start a server configured as FULL index recovery mode.
 
 ## Installation
 
@@ -18,15 +18,22 @@ Or install it yourself as:
 
 ## Usage
 
-1. Install the gem
+Install the gem...
+Configure a check in your nrpe local ie: 
 
-    $ gem install airm_nagios_check
+    # NRPE: Alfresco index recovery mode
+    check[index_recovery_mode]=${RUBY_HOME}/bin/airm_nagios_check --file /opt/your-alfresco-install/conf/alfresco.properties
+
+Configure a command in your nagios instance ie:
     
-2. Configure a check in your nrpe local i.e.: 
+    # Nagios: Alfresco index recovery mode service/command
+    define service {
 
-    $ check[index_recovery_mode]=${RUBY_HOME}/bin/airm_nagios_check --file /opt/your-alfresco-install/conf/alfresco.properties
-
-3. Configure a command in your nagios instance...
+      hostgroup_name       alfresco-servers
+      service_description  Index Recovery Mode
+      check_command        check_nrpe!check_index_recovery_mode
+      use                  generic-service
+    }    
 
 ## Contributing
 
