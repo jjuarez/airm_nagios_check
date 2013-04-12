@@ -4,6 +4,7 @@ require 'airm_nagios_check/config'
 require 'airm_nagios_check/exit_codes'
 require 'airm_nagios_check/response'
 require 'airm_nagios_check/simple_performance_data'
+require 'airm_nagios_check/options_parser'
 
 
 module AirmNagiosCheck

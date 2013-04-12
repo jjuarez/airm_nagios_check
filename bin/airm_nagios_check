@@ -3,17 +3,21 @@
 lib = File.expand_path(File.join(File.dirname(__FILE__), %w{.. lib}))
 $:.unshift(lib) unless $:.include?(lib)
 
-require 'airm_nagios_check/options_parser'
 require 'airm_nagios_check'
 
+response = nil
 
 begin
   response = AirmNagiosCheck::Checker.new(:filename=>Choice.choices[:file]).do_check()
-
-  puts response.performance_data
-  Kernel.exit(response.exit_code)
 rescue Exception =>ex
       
   $stderr.puts ex.message
-  return Response.new(ExitCodes::UNKNOWN, SimplePerformanceData.new('Index Recovery Mode', '???'))
+
+  response = AirmNagiosCheck::Response.new(
+    AirmNagiosCheck::ExitCodes::UNKNOWN, 
+    AirmNagiosCheck::SimplePerformanceData.new('Index Recovery Mode', '???'))
+ensure 
+
+  puts reponse.performance_data
+  Kernel.exit(response.exit_code)
 end
