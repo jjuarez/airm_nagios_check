@@ -29,6 +29,9 @@ module AirmNagiosCheck
       @error_codes.merge!(options[:pluginbehavior])
       
       self
+    rescue Exception => ex
+      $stderr.puts ex.message
+      return Response.new(ExitCodes::UNKNOWN, SimplePerformanceData.new('Index Recovery Mode', '???'))
     end
     
     def do_check(options={ })
