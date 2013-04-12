@@ -15,9 +15,9 @@ rescue Exception =>ex
 
   response = AirmNagiosCheck::Response.new(
     AirmNagiosCheck::ExitCodes::UNKNOWN, 
-    AirmNagiosCheck::SimplePerformanceData.new('Index Recovery Mode', '???'))
+    AirmNagiosCheck::SimplePerformanceData.new('Index Recovery Mode', "#{ex.message}"))
 ensure 
 
-  puts reponse.performance_data
+  puts response.performance_data
   Kernel.exit(response.exit_code)
 end
